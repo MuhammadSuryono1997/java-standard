@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class NumberFive {
-    public static void main(String[] args) {
-        String path = "products.csv";
+    public static void main(String[] args) throws IOException {
+        String path = "file/products.csv";
         String[] headers = headers(path);
         List<Map<String, String>> result = null;
         Stream<String> stream = Files.lines(Paths.get(path));
