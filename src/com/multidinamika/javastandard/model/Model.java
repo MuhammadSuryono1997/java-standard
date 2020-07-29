@@ -60,4 +60,23 @@ public class Model {
                     ", \"items\":" + items + '}';
         }
     }
+
+    public static class ShopModel{
+        String name, category;
+        String price;
+
+        public ShopModel(String name, String category, String price) {
+            this.name = name;
+            this.category = category;
+            this.price = price;
+        }
+        @Override
+        public String toString() {
+            return "{"+
+                    "\"name\":\"" + name + '\"' +
+                    ",\"category\":\"" + category + '\"' +
+                    ",\"price\":" + price +
+                    '}';
+        }
+    }
 }

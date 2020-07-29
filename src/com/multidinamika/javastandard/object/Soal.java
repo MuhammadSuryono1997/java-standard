@@ -53,4 +53,9 @@ public class Soal {
         JSONArray js = (JSONArray) obj;
         return js;
     }
+
+    public String NumberLima(){
+        String path = "file/products.csv";
+        return path;
+    }
 }

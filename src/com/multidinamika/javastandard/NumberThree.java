@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -23,12 +24,12 @@ public class NumberThree {
         String orderId = (String) s.get("order_id");
         JSONObject customer = (JSONObject) s.get("customer");
         JSONArray items = (JSONArray) s.get("items");
-        List<Object> item = new ArrayList<Object>(items);
-        for (Object data: items){
+        JSONObject jb= (JSONObject) items.get(0);
 
-        }
 
-        new Model.PurchaseModel(orderId,created,
-                new Model.CustomerModel((int)customer.get("id"), (String)customer.get("name")), );
+//         new Model.PurchaseModel(orderId,created,
+//                new Model.CustomerModel((int)customer.get("id"), (String)customer.get("name")),
+//            new Model.ItemModel((int) jb.get("id"), (String) jb.get("name"), (int) jb.get("qty"), (int) jb.get("price"))
+//        );
     }
 }
