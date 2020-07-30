@@ -47,7 +47,7 @@ public class Model {
         public CustomerModel customer;
         public List<ItemModel> items;
 
-        PurchaseModel(String orderId, String createdAt, CustomerModel customer, List<ItemModel> items) {
+        public PurchaseModel(String orderId, String createdAt, CustomerModel customer, List<ItemModel> items) {
             this.createdAt = createdAt;
             this.orderId = orderId;
             this.customer = customer;

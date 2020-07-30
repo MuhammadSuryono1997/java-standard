@@ -5,9 +5,7 @@ import com.multidinamika.javastandard.object.Soal;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 public class NumberThree {
@@ -24,12 +22,24 @@ public class NumberThree {
         String orderId = (String) s.get("order_id");
         JSONObject customer = (JSONObject) s.get("customer");
         JSONArray items = (JSONArray) s.get("items");
-        JSONObject jb= (JSONObject) items.get(0);
+        Map newItems = new HashMap<String, Object>();
+        for (Object ite:items){
+            JSONObject data = (JSONObject) ite;
+//            var newItems = new Model.ItemModel((int) data.get("id"), (
+//                    String) data.get("name"),
+////                    (int) data.get("qty"),
+//                    (int) data.get("price"));
+            newItems.put("id", data.get("id"));
+            newItems.put("name", data.get("name"));
+            newItems.put("qty",data.get("qty"));
+            newItems.put("price", data.get("price"));
+        }
 
-
-//         new Model.PurchaseModel(orderId,created,
-//                new Model.CustomerModel((int)customer.get("id"), (String)customer.get("name")),
-//            new Model.ItemModel((int) jb.get("id"), (String) jb.get("name"), (int) jb.get("qty"), (int) jb.get("price"))
-//        );
+//        System.out.println(customer.get("id"));
+//        System.out.println(customer.get("id").getClass().getTypeName());
+         new Model.PurchaseModel(orderId,created,
+                 (Model.CustomerModel) new Model.CustomerModel((int) customer.get("id"), (String)customer.get("name")),
+                 (List<Model.ItemModel>) new Model.ItemModel((int) newItems.get("id"), (String) newItems.get("name"), (int) newItems.get("qty"), (int) newItems.get("price"))
+         );
     }
 }

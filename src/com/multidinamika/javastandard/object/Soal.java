@@ -54,6 +54,13 @@ public class Soal {
         return js;
     }
 
+    public JSONArray NumberEmpat() throws Exception
+    {
+        Object obj = new JSONParser().parse(new FileReader("file/items.json"));
+        JSONArray js = (JSONArray) obj;
+        return js;
+    }
+
     public String NumberLima(){
         String path = "file/products.csv";
         return path;
